@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 ﻿# jekyll
 _site/*
 .sass_cache/*
+=======
+# jekyll
+_site/*
+/.sass_cache/
+>>>>>>> 8f47410c3f2539d56098bd9140181e357e30ba8c
