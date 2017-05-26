@@ -5,9 +5,9 @@ tagline: Supporting tagline
 ---
 {% include JB/setup %}
 
-文章列表
+### 文章列表
 
-<ul class="posts" style="margin-bottom:200px">
+<ul class="posts" style="margin-bottom:200px; padding-right:80px">
   {% for post in site.posts %}
     <li style="list-style:none;"> <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a> 
 		
