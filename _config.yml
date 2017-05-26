@@ -16,6 +16,8 @@ github_username:  killer1994
 
 # Build settings
 markdown: kramdown
+kramdown:
+  input:  GFM
 
 
 
