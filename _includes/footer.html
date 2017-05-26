@@ -14,7 +14,12 @@
 -->
       </div>
       
-      <div class="footer-col footer-col-1">
+      <div class="footer-col footer-col-1" style="text-align:center">
+        {% if site.github_username %}
+          <li style="list-style:none">
+            {% include icon-github.html username=site.github_username %}
+          </li>
+          {% endif %}
         <p>{{ site.description }}</p>
       </div>
       <!--
