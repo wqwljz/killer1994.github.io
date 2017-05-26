@@ -2,7 +2,7 @@
 layout: post
 title: "Hello World"
 description: ""
-category: 
+category: life
 tags: ["abc","14",123]
 author: kkk
 ---
