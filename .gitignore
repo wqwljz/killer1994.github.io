@@ -1,3 +1,2 @@
-﻿# jekyll
-_site/*
-.sass_cache/*
+﻿_site/
+.sass_cache/

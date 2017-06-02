@@ -9,7 +9,7 @@ tags: []
 
 SpringMVC 的流程图（网图，侵删）
 
-![SpringMVC流程图](https://github.com/killer1994/killer1994.github.io/tree/master/Resources/pics/springmvc-1.jpg)
+![SpringMVC流程图](/Resources/pics/springmvc-1.jpg)
 
 通过图片我们可以知道，主要到配置在 `DispatcherServelt`, `HandlerMapping`, `HandlerAdapter`, `ViewResolver`.
 
