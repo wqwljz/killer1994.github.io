@@ -1,0 +1,89 @@
+创建版本库
+    --git init
+    --git add $file/ git add .
+    --git commit -m $string
+时光机穿梭
+    --git status
+    --git diff $file
+    版本回退
+        --git log
+        --git log --pretty=oneline
+        --git reset --hard HEAD^
+        --git reset --hard $commit_id
+        --git reflogs
+    工作区和暂存区
+    管理修改
+    撤销修改
+        --git checkout -- $file
+        --git reset HEAD $file
+    删除文件
+        --git rm $file
+远程仓库
+    --ssh-keygen -t rsa -C "youremail@example.com"
+    添加远程库
+        --git remote add $origin git@******.git
+        --git push -u $origin master
+        --git push $origin master
+    克隆远程库
+        --git clone git@******.git
+分支管理
+    创建与合并分支
+        --git checkout -b $dev      // 创建dev分支并切换到dev
+        --git branch $dev           // 创建分支
+        --git checkout $dev         // 切换到分支
+        --git branch                // 查看当前分支
+        --git merge $dev            // 合并某分支到当前分支
+        --git branch -d $dev        // 删除dev分支
+    解决冲突
+        --git log --graph --pretty=oneline --abbrev-commit
+        --git log --graph
+    分支管理策略
+        (用 禁止"fast forward"模式 流程)
+        --git checkout -b dev           // 创建并切换到分支dev
+        --git add $file                 //
+        --git commit -m $string         // 提交
+        --git checkout master           // 切回 master
+        --git merge --no-ff $string dev // 用no-ff方式合并dev，并生成一个新的commit
+        --git log --graph --pretty=oneline --abbrev-commit  // 查看分支树
+    Bug分支(发现bug需要紧急修复，目前在dev分支上)
+        --git stash                     // 可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作
+            --git checkout master           // 开始修复bug101
+            --git checkout -b issue-101
+            --git add $file
+            --git commit -m "fix bug 101"
+            --git checkout master
+            --git merge --no-ff -m "merged bug fix 101" issue-101
+            --git branch -d issue-101       // 修复完毕
+        --git checkout dev              // 切回 dev
+        --git status                    // 工作区是干净的
+        --git stash list                // 查看之前 stash
+        --git stash pop                 // 来恢复，并删除stash，
+                                        // 等价于 --git stash apply + git stash drop
+    Feature分支
+        --git branch -D $branch         // 强制删除 $branch 分支
+    多人协作
+        --git remote                    // 查看远程库信息
+        --git remote -v                 // 更详细
+        --git push $origin $local       // 把本地分支推到远程
+        A:
+        --git clone git@****.git            // A 从远端克隆到本地
+        --git checkout -b dev origin/dev    // 创建远程origin的dev分支到本地
+        ...some commit on dev
+        --git push origin dev               // 本地推到远端
+        B:
+        ...some commit on dev               // B 在本地dev分支上做了修改
+        --git push origin dev (fail)        // B 发现推到远端失败
+            --git pull(fail)                    // B 试图先pull下来合并后在push，但是pull失败了
+                --git branch --set-upstream dev origin/dev  // B 指定本地dev分支与远程origin/dev分支的链接
+            --git pull                          // B 从远端 pull 到本地
+            ...merge and fix, then              // 解决分支冲突
+        --git push origin dev                   // 本地推到远端
+标签管理（tag 对应版本号，比commit_id好记）
+    创建标签
+    操作标签
+github
+自定义Git
+    忽略特殊文件
+    配置别名
+    搭建Git服务器
+期末考试

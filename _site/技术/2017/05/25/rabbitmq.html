@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>初学RabbitMQ</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/%E6%8A%80%E6%9C%AF/2017/05/25/rabbitmq.html">
+  <link rel="alternate" type="application/rss+xml" title="自由即奴役" href="http://localhost:4000/feed.xml">
+</head>
+
+
+  <body style="overflow-x:hidden">
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <h2 class="site-title" href="/">自由即奴役</h2>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+<!-- 加载导航 -->
+        
+          
+          <a class="page-link" href="/">无知</a>
+          
+        
+          
+        
+          
+          <a class="page-link" href="/about/">和平</a>
+          
+        
+<!-- 加载结束  -->
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">初学RabbitMQ</h1>
+    <p class="post-meta">
+      <time datetime="2017-05-25T00:00:00+08:00"itemprop="datePublished">
+        May 25, 2017
+      </time>
+      
+        • 
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">kkk</span>
+        </span>
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    
+<h2 id="rabbitmq基础概念详细介绍"><a href="http://blog.csdn.net/whycold/article/details/41119807">RabbitMQ基础概念详细介绍</a></h2>
+
+<h2 id="tutorial_1-hello-world"><a href="https://github.com/killer1994/killer1994.github.io/tree/master/Resources/java/tutorial_1">tutorial_1: hello world</a></h2>
+
+<h2 id="tutorial_2-工作队列work-queues"><a href="https://github.com/killer1994/killer1994.github.io/tree/master/Resources/java/tutorial_2_workQueues">tutorial_2: 工作队列(work queues)</a></h2>
+
+<h3 id="round-robin-转发">Round-robin 转发</h3>
+
+<h3 id="概念">概念</h3>
+
+<p>默认的，RabbitMQ会一个一个的发送信息给下一个消费者(consumer)，而不考虑每个任务的时长等等，且是一次性分配，并非一个一个分配。</p>
+
+<p>平均的每个消费者将会获得相等数量的消息。</p>
+
+<p>这样分发消息的方式叫做round-robin。</p>
+<h3 id="优点">优点</h3>
+
+<p>使用任务队列的好处是能够很容易的并行工作。如果我们积压了很多工作，我们仅仅通过增加更多的工作者就可以解决问题，使系统的伸缩性更加容易。</p>
+<h3 id="关注点">关注点</h3>
+
+<p>响应回复(ack)、预取(perfectCount)、持久化(队列持久化durable、消息持久化)</p>
+
+<h2 id="tutorial_3-发布订阅publishsubscribe"><a href="https://github.com/killer1994/killer1994.github.io/tree/master/Resources/java/tutorial_3_PublishSubscribe">tutorial_3: 发布/订阅(Publish/Subscribe)</a></h2>
+<h3 id="目的">目的</h3>
+
+<p>为了验证这种模式，我们准备构建一个简单的日志系统。</p>
+
+<p>这个系统包含两类程序，一类程序发动日志，另一类程序接收和处理日志。</p>
+
+<p>在我们的日志系统中，每一个运行的接收者程序都会收到日志。</p>
+
+<p>然后我们实现，一个接收者将接收到的数据写到硬盘上，与此同时，另一个接收者把接收到的消息展现在屏幕上。</p>
+<h3 id="关注点-1">关注点</h3>
+
+<p>转发器(exchange):类型：Direct(具体定向)、Topic(模糊定向)、Headers()、Fanout(广播)</p>
+<h3 id="实现">实现</h3>
+
+<p>前面的例子里，我们用的是匿名转发器,通过设置RountingKey来决定发送给指定队列。</p>
+
+<p>这里我们用的是Fanout类型的Exchange；并指定具体Exchange(“logs”)，使用临时队列。</p>
+
+<p>通过客户端生产临时队列，并Binding到Exchange上，完成整个流程。</p>
+
+<p>// 指定接收者，第二个参数为自动应答，无需手动应答</p>
+
+<p>channel.basicConsume(quequeName,true,consumer);</p>
+
+<h2 id="tutorial_4-路由选择routing"><a href="https://github.com/killer1994/killer1994.github.io/tree/master/Resources/java/tutorial_4_Routing">tutorial_4: 路由选择(Routing)</a></h2>
+<h3 id="目的-1">目的</h3>
+<p>让日志接收者能够订阅部分消息。</p>
+
+<p>例如，我们可以仅仅将致命的错误写入日志文件，然而仍然在控制面板上打印出所有的其他类型的日志消息。</p>
+<h3 id="关注点-2">关注点</h3>
+<p>多重绑定(binding key)</p>
+<h3 id="实现-1">实现</h3>
+<p>channel.exchangeDeclare(EXCHANGE_NAME,”direct”);</p>
+
+<p>channel.queueBind(queueName, EXCHANGE_NAME, key);</p>
+
+<h2 id="tutorial_5-主题topic"><a href="https://github.com/killer1994/killer1994.github.io/tree/master/Resources/java/tutorial_5_Topic">tutorial_5: 主题(Topic)</a></h2>
+<h3 id="目的-2">目的</h3>
+<p>上面的direct类型改良了我们的系统，但是仍然存在一些局限性，它不能够基于多重条件进行路由选择。</p>
+<h3 id="关注点-3">关注点</h3>
+
+<h3 id="实现-2">实现</h3>
+
+<p>发往主题类型的转发器的消息不能随意的设置选择键（routing_key），必须是由点隔开的一系列的标识符组成。</p>
+
+<p>标识符可以是任何东西，但是一般都与消息的某些特性相关。你可以定义任何数量的标识符，上限为255个字节。</p>
+
+<p>一些合法的选择键的例子：”stock.usd.nyse”, “nyse.vmw”,”quick.orange.rabbit”.</p>
+
+<p>*可以匹配一个标识符。</p>
+
+<p>#可以匹配0个或多个标识符。</p>
+
+<p>channel.exchangeDeclare(EXCHANGE_NAME,”topic”);</p>
+
+<p>channel.queueBind(queueName, EXCHANGE_NAME, “*.key”);</p>
+
+<h2 id="tutorial_6-远程过程调用-remote-procedure-call-rpc"><a href="https://github.com/killer1994/killer1994.github.io/tree/master/Resources/java/tutorial_6_RPC">tutorial_6: 远程过程调用 Remote procedure call (RPC)</a></h2>
+<h3 id="目的-3">目的</h3>
+
+<p>在云计算环境中，很多时候需要用它其他机器的计算资源，我们有可能会在接收到Message进行处理时，会把一部分计算任务分配到其他节点来完成。</p>
+
+<h3 id="工作流程">工作流程：</h3>
+
+<ol>
+  <li>当客户端启动时，它创建了匿名的exclusive callback queue.</li>
+  <li>客户端的RPC请求时将同时设置两个properties： reply_to设置为callback queue；correlation_id设置为每个request一个独一无二的值.</li>
+  <li>请求将被发送到an rpc_queue queue.</li>
+  <li>RPC端或者说server一直在等待那个queue的请求。当请求到达时，它将通过在reply_to指定的queue回复一个message给client。</li>
+  <li>client一直等待callback queue的数据。当message到达时，它将检查correlation_id的值，如果值和它request发送时的一致那么就将返回响应。</li>
+</ol>
+
+<h3 id="参考链接">参考链接：</h3>
+<p><a href="http://www.rabbitmq.com/getstarted.html">官方教程链接</a></p>
+
+<p><a href="http://blog.csdn.net/column/details/rabbitmq.html">RabbitMQ_Python 实现</a></p>
+
+<p><a href="http://blog.csdn.net/lmj623565791/article/category/2386657">RabbitMQ_Java 实现</a></p>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer" style="padding:15px 0">
+
+  <div class="wrapper">
+
+    
+    <div class="footer-col-wrapper">   
+      <div class="footer-col footer-col-1">  
+         <span>&nbsp;</span>
+      </div>  
+      <div class="footer-col footer-col-1" style="text-align:center">
+        
+          <li style="list-style:none">
+            <a href="https://github.com/killer1994"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">killer1994</span></a>
+
+          </li>
+        
+        <p>Welcome to my blog.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

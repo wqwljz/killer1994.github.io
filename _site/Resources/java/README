@@ -1,0 +1,70 @@
+文件说明
+
+参考资料
+        http://www.rabbitmq.com/getstarted.html
+        http://blog.csdn.net/lmj623565791/article/category/2386657
+        http://blog.csdn.net/column/details/rabbitmq.html
+RabbitMQ 官方教程
+tutorial_1: hello world
+tutorial_2: 工作队列(work queues)
+    Round-robin 转发
+    概念
+        默认的，RabbitMQ会一个一个的发送信息给下一个消费者(consumer)，而不考虑每个任务的时长等等，且是一次性分配，并非一个一个分配。
+        平均的每个消费者将会获得相等数量的消息。
+        这样分发消息的方式叫做round-robin。
+    优点
+        使用任务队列的好处是能够很容易的并行工作。如果我们积压了很多工作，我们仅仅通过增加更多的工作者就可以解决问题，使系统的伸缩性更加容易。
+    关注点
+        响应回复(ack)、预取(perfectCount)、持久化(队列持久化durable、消息持久化)
+
+tutorial_3: 发布/订阅(Publish/Subscribe)
+    目的
+        为了验证这种模式，我们准备构建一个简单的日志系统。
+        这个系统包含两类程序，一类程序发动日志，另一类程序接收和处理日志。
+        在我们的日志系统中，每一个运行的接收者程序都会收到日志。
+        然后我们实现，一个接收者将接收到的数据写到硬盘上，与此同时，另一个接收者把接收到的消息展现在屏幕上。
+    关注点
+        转发器(exchange)
+            类型：Direct(具体定向)、Topic(模糊定向)、Headers()、Fanout(广播)
+    实现
+        前面的例子里，我们用的是匿名转发器,通过设置RountingKey来决定发送给指定队列。
+        这里我们用的是Fanout类型的Exchange；并指定具体Exchange("logs")，使用临时队列。
+        通过客户端生产临时队列，并Binding到Exchange上，完成整个流程。
+
+        // 指定接收者，第二个参数为自动应答，无需手动应答
+        channel.basicConsume(quequeName,true,consumer);
+
+tutorial_4: 路由选择(Routing)
+    目的
+        让日志接收者能够订阅部分消息。
+        例如，我们可以仅仅将致命的错误写入日志文件，然而仍然在控制面板上打印出所有的其他类型的日志消息。
+    关注点
+        多重绑定(binding key)
+    实现
+        channel.exchangeDeclare(EXCHANGE_NAME,"direct");
+        channel.queueBind(queueName, EXCHANGE_NAME, severity);
+
+tutorial_5: 主题(Topic)
+    目的
+        上面的direct类型改良了我们的系统，但是仍然存在一些局限性，它不能够基于多重条件进行路由选择。
+    关注点
+
+    实现
+        发往主题类型的转发器的消息不能随意的设置选择键（routing_key），必须是由点隔开的一系列的标识符组成。
+        标识符可以是任何东西，但是一般都与消息的某些特性相关。你可以定义任何数量的标识符，上限为255个字节。
+        一些合法的选择键的例子："stock.usd.nyse", "nyse.vmw","quick.orange.rabbit".
+        *可以匹配一个标识符。
+        #可以匹配0个或多个标识符。
+        channel.exchangeDeclare(EXCHANGE_NAME,"topic");
+        channel.queueBind(queueName, EXCHANGE_NAME, "*.critical");
+
+tutorial_6: 远程过程调用 Remote procedure call (RPC)
+    目的
+        在云计算环境中，很多时候需要用它其他机器的计算资源，我们有可能会在接收到Message进行处理时，会把一部分计算任务分配到其他节点来完成。
+    工作流程：
+        1. 当客户端启动时，它创建了匿名的exclusive callback queue.
+        2. 客户端的RPC请求时将同时设置两个properties： reply_to设置为callback queue；correlation_id设置为每个request一个独一无二的值.
+        3. 请求将被发送到an rpc_queue queue.
+        4. RPC端或者说server一直在等待那个queue的请求。当请求到达时，它将通过在reply_to指定的queue回复一个message给client。
+        5. client一直等待callback queue的数据。当message到达时，它将检查correlation_id的值，如果值和它request发送时的一致那么就将返回响应。
+
