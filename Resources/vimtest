@@ -1,0 +1,116 @@
+Your youngest and strongest will fall by the sword
+Your youngest and strongest will fall by the sword
+Your youngest and strongest will fall by the sword
+Your youngest and strongest will fall by the sword
+Your youngest and strongest will fall by the sword
+Your youngest and strongest will fall by the sword
+Your youngest and strongest will fall by the sword
+Your youngest and strongest will fall by the sword
+Your youngest and strongest will fall by the sword
+Your youngest and strongest will fall by the sword, this is test for W and B.
+Your youngest and strongest will fall by the sword
+Your youngest and strongest will fall by the sword
+Your youngest and strongest will fall by the sword
+Your youngest and strongest will fall by the sword
+Your youngest and strongest will fall by the sword
+
+
+
+
+
+----------this is the command about move----------
+
+l right
+h left
+j down
+k up
+
+0 to the beginning of the current line
+^ to the first non-space character on the current line
+$ to the end of the current line
+
+w to the beginning of the next word (include the punctuation)
+W to the beginning of the next word 
+b to the beginning of the previous word (include the punctuation)
+B to the beginning of the previous word
+e to the end of the next word 
+E to the end of the next word
+
+ctrl-f down one page
+ctrl-b up one page
+
+gg the start
+G to the last line of the file
+
+number + (G/w/e/b/h/j/k/l)
+5G go to 5th line of the file
+
+----------this is the command about edit----------
+
+a append text after to the current cursor
+A append text to the end of the current line
+
+o open a blank line below the current line
+O open a blank line above the current line
+
+x delete the current character
+3x delete the current character and the next 2 characters
+dd delete the current line
+5dd delete the current line and the next 4 lines
+dw delete from the current cursor position to the beginning of the next word
+d$ delete from the current cursor position to the end of the current line
+d0 delete from the current cursor position to the beginning of the current line
+d^ delete from the current cursor position to the first non-whitespace charater in the line
+dG delete from the current line to the end line of the file
+d20G delete from the current line to the 20th line of the file
+
+yy copy the current line
+5yy copy the current line and the next 4 lines
+yW copy from the current cursor position to the beginning of the next word
+y$
+y0
+y^
+yG
+y20G
+
+J join the next line to current line
+
+----------this is the command about search and replace ----------
+
+fa find current line the next a
+/ou find "ou" in the file, press n to move the cursor to the next "ou"
+
+%s/Your/your/g using "your" to replace "Your" in global file
+%s/your/Your/gc check when replace (y:yes/n:no/a:all/q:quit/l:replace this one and quit)
+
+----------this is the command about milti-files----------
+
+vim file1 file2 file3 ...	open many files with vim
+:n			switch to next file
+:buffers	see files list
+:buffer 2	switch to the file whose buffer number is 2
+
+:e file1	open extend file, but can't use :n to switch next file, can user "buffer+number" to switch
+
+:r file1	insert file1's content to current file
+
+:w file1	save file1
+
+----------this is the command about visual-block----------
+
+1. move the cursor to start position, then press ctrl-v into Visual-block mode
+2. select the block you want to choose
+3. press i to insert mode, insert something you want 
+4. press Esc, you will find all the bolck insert something.
+
+eg (给第3-5行每行句末添加";"):
+	1. 3G			move to the 3th line
+	2. ctrl-v		into Visual-block mode
+	3. 5G$			move the cursor to the 5th line, $ means move the cursor to end of the line
+	4. A			into Append mode
+	5. ;			append ";"
+	6. Esc			show the magic
+
+
+
+
