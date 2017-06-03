@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 和平
-permalink: /about/
+permalink: /categories/
 ---
 
 {% for category in site.categories %}
