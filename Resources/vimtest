@@ -4,8 +4,8 @@ Your youngest and strongest will fall by the sword
 Your youngest and strongest will fall by the sword
 Your youngest and strongest will fall by the sword
 Your youngest and strongest will fall by the sword
-Your youngest and strongest will fall by the sword
-Your youngest and strongest will fall by the sword
+Your youngest and strongest will fall by the sword   
+Your youngest and strongest will fall by the sword  
 Your youngest and strongest will fall by the sword
 Your youngest and strongest will fall by the sword, this is test for W and B.
 Your youngest and strongest will fall by the sword
@@ -13,90 +13,122 @@ Your youngest and strongest will fall by the sword
 Your youngest and strongest will fall by the sword
 Your youngest and strongest will fall by the sword
 Your youngest and strongest will fall by the sword
+Your youngest and strongest will fall by the sword
 
 
 
 
 
-----------this is the command about move----------
+---------- move(移动命令)----------
 
-l right
-h left
-j down
-k up
+l				 	right
+h				 	left
+j				 	down
+k				 	up
 
-0 to the beginning of the current line
-^ to the first non-space character on the current line
-$ to the end of the current line
+0				 	to the beginning of the current line
+^				 	to the first non-space character on the current line
+$				 	to the end of the current line
 
-w to the beginning of the next word (include the punctuation)
-W to the beginning of the next word 
-b to the beginning of the previous word (include the punctuation)
-B to the beginning of the previous word
-e to the end of the next word 
-E to the end of the next word
+w				 	to the beginning of the next word (include the punctuation)
+W				 	to the beginning of the next word 
+b				 	to the beginning of the previous word (include the punctuation)
+B				 	to the beginning of the previous word
+e				 	to the end of the next word 
+E				 	to the end of the next word
 
-ctrl-f down one page
-ctrl-b up one page
+ctrl-f			 	down one page
+ctrl-b			 	up one page
+ctrl-u			 	up half page
+ctrl-d			 	down half page
 
-gg the start
-G to the last line of the file
+gg 				 	the start
+G 					to the last line of the file
 
 number + (G/w/e/b/h/j/k/l)
-5G go to 5th line of the file
+5G 					go to 5th line of the file
 
-----------this is the command about edit----------
+----------dedit(编辑命令)----------
+i					在光标处插入
+I					在光标所在行首插入
 
-a append text after to the current cursor
-A append text to the end of the current line
+a 			 		在光标后插入
+A					在光标所在行尾插入
 
-o open a blank line below the current line
-O open a blank line above the current line
+o					在当前行下插入新行
+O					在当前行上插入新行
 
-x delete the current character
-3x delete the current character and the next 2 characters
-dd delete the current line
-5dd delete the current line and the next 4 lines
-dw delete from the current cursor position to the beginning of the next word
-d$ delete from the current cursor position to the end of the current line
-d0 delete from the current cursor position to the beginning of the current line
-d^ delete from the current cursor position to the first non-whitespace charater in the line
-dG delete from the current line to the end line of the file
-d20G delete from the current line to the 20th line of the file
+x					delete the current character
+3x					delete the current character and the next 2 characters
+dd					delete the current line
+5dd					delete the current line and the next 4 lines
+dw					delete from the current cursor position to the beginning of the next word
+d$					delete from the current cursor position to the end of the current line
+d0					delete from the current cursor position to the beginning of the current line
+d^					delete from the current cursor position to the first non-whitespace charater in the line
+dG					delete from the current line to the end line of the file
+d20G				delete from the current line to the 20th line of the file
 
-yy copy the current line
-5yy copy the current line and the next 4 lines
-yW copy from the current cursor position to the beginning of the next word
+yy					copy the current line
+5yy					copy the current line and the next 4 lines
+yW					copy from the current cursor position to the beginning of the next word
 y$
 y0
 y^
 yG
 y20G
 
-J join the next line to current line
+J 					join the next line to current line
 
-----------this is the command about search and replace ----------
+shift+insert 		paste the outer context
 
-fa find current line the next a
-/ou find "ou" in the file, press n to move the cursor to the next "ou"
+c 					命令，剪切，进入插入模式,需要参数，一般操作完，可结合p/P进行粘帖
+C or c$				修改从光标到行末，进入编辑模式
+c0 or c^			修改从光标到行首(^首个非空格处),并进入
+cc or S				修改当前行，并进入
+cfx					x表示一任意字符，修改从光标到下一字符x之间到文本(当前行)
+cFx					x表示一任意字符，修改从光标到上一字符x之间到文本(当前行)
+cn|					n表示正整数，修改从光标到第n个字符之间到所有字符(当前行)
+cnG					n为一任意自然数，修改当前行到第n行之间到所有行
+cG					修改当前行到末行
 
-%s/Your/your/g using "your" to replace "Your" in global file
-%s/your/Your/gc check when replace (y:yes/n:no/a:all/q:quit/l:replace this one and quit)
+----------search and replace(查找&替换) ----------
 
-----------this is the command about milti-files----------
+fa 					find current line the next a
+/ou 				down to find "ou" in the file, press n to move the cursor to the next "ou"
+?ou 				向上找ou字符，按 n 向上下一个
+/\<Your\>			匹配Your的字符，<表示开始处，>表示结尾处，会过滤掉像 abcYourasdas 这种
 
-vim file1 file2 file3 ...	open many files with vim
-:n			switch to next file
-:buffers	see files list
-:buffer 2	switch to the file whose buffer number is 2
+:set ignorecase		忽略大小写(查找)
+:set hlsearch		高亮查找到的内容
 
-:e file1	open extend file, but can't use :n to switch next file, can user "buffer+number" to switch
+:[addr]s/源字符串/目标字符串/[option]
+	[addr] 代表检索范围，缺省表示当前行，1，10表示1到10行；%表示整个文件，等价于1，$；而.，$表示当前行到文件末尾
+	s 代表替换到意思
+	option 代表操作类型，缺省只对第一个匹配到字符进行替换，g代表全局替换，c代表操作时确认，可组合操作使用
 
-:r file1	insert file1's content to current file
+:%s/Your/your/g 	using "your" to replace "Your" in global file
+:%s/your/Your/gc 	check when replace (y:yes/n:no/a:all/q:quit/l:replace this one and quit)
+:59,61s/ /tabs		在59到61行，用tabs键代替第一个空格
+:%s/^/#/			全文首行加入 # 字符，常用于备注
+:%s= *$==			将所有行尾多余空格删除
 
-:w file1	save file1
 
-----------this is the command about visual-block----------
+----------milti-files(多文件操作)----------
+
+vim file1 file2 ...	打开多个文件
+:n/next				切换到下个文件
+:previous			切换到上个文件	
+:buffers			see files list
+:buffer 2			switch to the file whose buffer number is 2
+
+:e file1			open extend file, but can't use :n to switch next file, can user "buffer+number" to switch
+
+:r file1			insert file1's content to current file
+
+:w file1			save file1
+
+--------- visual-block----------
 
 1. move the cursor to start position, then press ctrl-v into Visual-block mode
 2. select the block you want to choose
@@ -104,13 +136,13 @@ vim file1 file2 file3 ...	open many files with vim
 4. press Esc, you will find all the bolck insert something.
 
 eg (给第3-5行每行句末添加";"):
-	1. 3G			move to the 3th line
-	2. ctrl-v		into Visual-block mode
-	3. 5G$			move the cursor to the 5th line, $ means move the cursor to end of the line
+	1. 3G			移动到第三行
+	2. ctrl-v		进入 Visual-block mode
+	3. 5G$			移动到第五行末尾
 	4. A			into Append mode
 	5. ;			append ";"
-	6. Esc			show the magic
+	6. Esc			见证奇迹到时刻
 
+----------   Day 1  -----------------
 
-
-
+this is something
