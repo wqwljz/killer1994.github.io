@@ -2,7 +2,7 @@
 layout: post
 title: "详解 HashMap HashSet Entry"
 description: ""
-category: 技术
+category: Java
 tags: []
 ---
 {% include JB/setup %}

@@ -2,7 +2,7 @@
 layout: post
 title: "学习Spring MVC"
 description: ""
-category: [技术]
+category: [Java]
 tags: []
 ---
 {% include JB/setup %}
