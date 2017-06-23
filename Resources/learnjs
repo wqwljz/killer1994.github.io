@@ -1,0 +1,256 @@
+﻿
+
+String
+Array 
+	init: 
+		[1,2.3,"abc",null,true]
+	func: 
+		indexOf slice pop&push unshift&shift sort reverse splice concat join  
+对象
+	init:
+	func:
+		hasOwnProperty 
+
+变量作用域		
+	全局变量(绑定在window上)
+		为了避免多个文件 全局变量命名冲突， 把每个文件的变量和函数全部绑定到一个全局变量中。例如：
+		var MAYAPP = {}
+		MYAPP.name = "myapp";
+		MYAPP.foo = function(){};
+	局部作用域
+		JS 的变量作用域实际上是函数内部， 所以for循环等语句块中是无法定义具有局部作用域的变量
+		（ES6）解决块级作用域，引入了let替代var可以申明一个块级作用域的变量
+	常量
+		（ES6）const
+
+方法
+	this that
+	apply(obj, args[])&call(obg,arg1,arg2...)
+	装饰器，例，统计一下代码一共调用了多少次parseInt()：
+		var count = 0;
+		var oldParseInt = parseInt; // 保存原函数
+
+		window.parseInt = function () {
+			count += 1;
+			return oldParseInt.apply(null, arguments); // 调用原函数
+		};
+
+		// 测试:
+		parseInt('10');
+		parseInt('20');
+		parseInt('30');
+		count; // 3
+		
+高阶函数（函数做参数）
+	概念:
+		function add(x, y, f) {
+			return f(x) + f(y);
+		}
+	map:
+		概念 http://research.google.com/archive/mapreduce.html
+		例1（把函数f(x)=x*x作用于一个数组）:
+			function pow(x) {
+				return x * x;
+			}
+
+			var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+			arr.map(pow); // [1, 4, 9, 16, 25, 36, 49, 64, 81]
+		例2（把数字转成字符串）：
+			var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+			arr.map(String); // ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+	reduce:
+		概念 同上
+			[x1, x2, x3, x4].reduce(f) = f(f(f(x1, x2), x3), x4)
+		例1（对数组求和）：
+			var arr = [1, 3, 5, 7, 9];
+			arr.reduce(function (x, y) {
+				return x + y;
+			}); // 25
+		例2（不用parseInt()和Number()，完成string2int，即“123”=>123）:
+			function string2int(s){
+				return s.split("").map(function(x){return x-'0';}).reduce(function(x,y){return x*10+y;});
+			}
+		注意：["1", "2", "3"].map(parseInt);	// [1, NaN, NaN]
+		原因：
+			parseInt(string,radix)
+				radix 进制。如果省略该参数或其值为 0，则数字将以 10 为基础来解析。如果它以 “0x” 或 “0X” 开头，将以 16 为基数。如果该参数小于 2 或者大于 36，则 parseInt() 将返回 NaN。参考资料：http://blog.csdn.net/freshlover/article/details/19034079
+				
+			这里使用时，将数组的value，index作为两个参数传入了，即
+			parseInt("1",0)	=> 1	// 0代表10进制
+			parseInt("2",1)	=> NaN	// 1进制出现2 故NaN
+		正确的转换
+			["1", "2", "3"].map(Number);		// [1, 2, 3]
+	filter:
+		概念：过滤器（关键在于编写过滤函数）
+		例1（巧妙地去除Array中的重复元素）:
+			arr.filter(function(element, index, self){
+				return self.indexOf(element) === index;
+			});
+	sort:
+		默认：数组元素转成String 比较ASCII码大小排序。（巨坑！！！）
+			高阶函数，接受比较函数来实现自定义排序
+		例1（数字排序）：
+			var arr = [10, 20, 1, 2];
+			arr.sort(function (x, y) {
+				if (x < y) { return -1; }
+				if (x > y) { return 1; }
+				return 0;
+			}); // [1, 2, 10, 20]
+		例2（字符忽略大小写排序）：
+			var arr = ['Google', 'apple', 'Microsoft'];
+			arr.sort(function (s1, s2) {
+				x1 = s1.toUpperCase();
+				x2 = s2.toUpperCase();
+				if (x1 < x2) { return -1; }
+				if (x1 > x2) { return 1; }
+				return 0;
+			}); // ['apple', 'Google', 'Microsoft']
+		备注：sort() 会直接对 Array 进行修改，返回的仍是当前的 Array.
+		
+	闭包
+		函数作为返回值
+	（ES6）箭头函数		
+
+
+标准对象
+	Date 
+		注意 getMonth 返回的是月份-1；例情人节（2.14）返回的是 1
+		
+	RegExp(正则表达式)
+		匹配元素
+			\d				匹配一个数字
+			\w				匹配一个数字或字母
+			\s				匹配一个空格（也包括Tab等空白符）	
+			.				匹配任意字符
+			
+			*				任意个（包括0）
+			+				至少1个
+			?				0或1 个
+			{n}				n个
+			{n,m}			n-m个
+			
+			A|B				匹配A或B	例：(J|j)ava(S|s)cript
+			[0-9a-zA-Z\_]	匹配一个数字、字母或下划线
+			^				表示行的开头，^\d表示必须以数字开头。
+			$				表示行的结束，\d$表示必须以数字结束。
+			
+		JavaScript有两种方式创建一个正则表达式：
+			第一种方式是直接通过/正则表达式/写出来，
+			第二种方式是通过new RegExp('正则表达式')创建一个RegExp对象。
+			例：
+				var re1 = /ABC\-001/;
+				var re2 = new RegExp('ABC\\-001');
+
+				re1; 	// /ABC\-001/
+				re2; 	// /ABC\-001/
+		判断正则表达式是否匹配：
+			RegExp对象的test()方法用于测试给定的字符串是否符合条件
+			例：
+				var re = /^\d{3}\-\d{3,8}$/;
+				re.test('010-12345'); // true
+				re.test('010-1234x'); // false
+				re.test('010 12345'); // false
+		切分字符串		
+			例：
+				'a,b;; c  d'.split(/[\s\,\;]+/); // ['a', 'b', 'c', 'd']
+		分组
+			用()表示的就是要提取的分组
+			例：
+				var re = /^(\d{3})-(\d{3,8})$/;
+				re.exec('010-12345'); // ['010-12345', '010', '12345']
+				re.exec('010 12345'); // null
+			如果正则表达式中定义了组，就可以在RegExp对象上用exec()方法提取出子串来。
+			exec()方法在匹配成功后，会返回一个Array，第一个元素是正则表达式匹配到的整个字符串，后面的字符串表示匹配成功的子串。
+			exec()方法在匹配失败时返回null。
+		贪婪匹配
+			正则匹配默认是贪婪匹配，也就是匹配尽可能多的字符
+			例：
+				var re = /^(\d+)(0*)$/;
+				re.exec('102300'); // ['102300', '102300', '']
+			由于\d+采用贪婪匹配，直接把后面的0全部匹配了，结果0*只能匹配空字符串了。
+			必须让\d+采用非贪婪匹配（也就是尽可能少匹配），才能把后面的0匹配出来，加个?就可以让\d+采用非贪婪匹配：
+			例：
+				var re = /^(\d+?)(0*)$/;
+				re.exec('102300'); // ['102300', '1023', '00']
+		全局搜索
+			JavaScript的正则表达式还有几个特殊的标志，
+			最常用的是g，表示全局匹配：
+				var r1 = /test/g;
+				// 等价于:
+				var r2 = new RegExp('test', 'g');
+			全局匹配可以多次执行exec()方法来搜索一个匹配的字符串。
+			当我们指定g标志后，每次运行exec()，正则表达式本身会更新lastIndex属性，表示上次匹配到的最后索引：
+				var s = 'JavaScript, VBScript, JScript and ECMAScript';
+				var re=/[a-zA-Z]+Script/g;
+
+				// 使用全局匹配:
+				re.exec(s); // ['JavaScript']
+				re.lastIndex; // 10
+
+				re.exec(s); // ['VBScript']
+				re.lastIndex; // 20
+
+				re.exec(s); // ['JScript']
+				re.lastIndex; // 29
+
+				re.exec(s); // ['ECMAScript']
+				re.lastIndex; // 44
+
+				re.exec(s); // null，直到结束仍没有匹配到
+				
+			全局匹配类似搜索，因此不能使用/^...$/，那样只会最多匹配一次。
+			正则表达式还可以指定
+				i标志，表示忽略大小写，
+				m标志，表示执行多行匹配。
+		
+面向对象编程
+	继承
+		例：
+			var Student = {
+				name = 'robot',
+				run: function(){console.log(this.name+' is running');}
+			}
+			var xiaomin = {
+				name = 'xiaomin'
+			}
+			xiaomin.__proto__ = Student;
+			xiaomin.run();
+	在编写JavaScript代码时，不要直接用obj.__proto__去改变一个对象的原型，并且，低版本的IE也无法使用__proto__。
+	Object.create()方法可以传入一个原型对象，并创建一个基于该原型的新对象，但是新对象什么属性都没有.
+		例：
+			// 原型对象:
+			var Student = {
+				name: 'Robot',
+				height: 1.2,
+				run: function () {
+					console.log(this.name + ' is running...');
+				}
+			};
+
+			function createStudent(name) {
+				// 基于Student原型创建一个新对象:
+				var s = Object.create(Student);
+				// 初始化新对象:
+				s.name = name;
+				return s;
+			}
+
+			var xiaoming = createStudent('小明');
+			xiaoming.run(); // 小明 is running...
+			xiaoming.__proto__ === Student; // true
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
