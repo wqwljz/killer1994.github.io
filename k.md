@@ -13,3 +13,13 @@ permalink: /think/
 <blockquote>[2017/06/05] 开始吧。</blockquote>
 
 </div>
+
+<style>
+.site-footer
+{
+position:absolute;
+bottom:0;
+width:100%;
+}
+</style>
+

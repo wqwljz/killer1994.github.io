@@ -15,3 +15,13 @@ permalink: /about/
 QQ: 786466216
 
 </div>
+
+<style>
+.site-footer
+{
+position:absolute;
+bottom:0;
+width:100%;
+}
+</style>
+
