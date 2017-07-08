@@ -1,0 +1,159 @@
+<style>
+	.tagBall{
+		width: 250px;
+		height: 250px;
+		margin:25px auto;
+		position: relative;
+	}
+	.tag{
+		display: block;
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		color: #000;
+		text-decoration: none;
+		font-size: 8px;
+		font-family: "微软雅黑";
+		font-weight: bold;
+	}
+	.tag:hover{border:1px solid #666;}
+</style>
+<div class="tagBall">
+	<a class="tag" href="#" style="color: rgb(97, 191, 212); font-size: 7.82351px; opacity: 0.683865; z-index: 78; left: 148.928px; top: 194.812px;">WAXES</a>
+	<a class="tag" href="#" style="color: rgb(49, 0, 230); font-size: 7.09173px; opacity: 0.533985; z-index: 70; left: 143.448px; top: 136.225px;">3D标签云</a>
+	<a class="tag" href="#" style="color: rgb(0, 119, 143); font-size: 7.11885px; opacity: 0.54009; z-index: 71; left: 74.4951px; top: 142.795px;">WAXES</a>
+	<a class="tag" href="#" style="color: rgb(87, 140, 239); font-size: 8.20178px; opacity: 0.750855; z-index: 82; left: 51.6212px; top: 196.646px;">3D标签云</a>
+	<a class="tag" href="#" style="color: rgb(41, 35, 89); font-size: 9.58154px; opacity: 0.950371; z-index: 95; left: 102.501px; top: 227.364px;">WAXES</a>
+	<a class="tag" href="#" style="color: rgb(83, 91, 165); font-size: 9.90764px; opacity: 0.989407; z-index: 99; left: 169.431px; top: 205.144px;">3D标签云</a>
+	<a class="tag" href="#" style="color: rgb(20, 177, 138); font-size: 8.9689px; opacity: 0.869359; z-index: 89; left: 211.041px; top: 146.057px;">WAXES</a>
+	<a class="tag" href="#" style="color: rgb(136, 47, 237); font-size: 7.886px; opacity: 0.695375; z-index: 78; left: 188.16px; top: 85.7948px;">3D标签云</a>
+	<a class="tag" href="#" style="color: rgb(54, 105, 32); font-size: 7.35253px; opacity: 0.590823; z-index: 73; left: 124.886px; top: 57.5588px;">WAXES</a>
+	<a class="tag" href="#" style="color: rgb(54, 7, 122); font-size: 7.53585px; opacity: 0.628421; z-index: 75; left: 49.374px; top: 73.8476px;">3D标签云</a>
+	<a class="tag" href="#" style="color: rgb(139, 70, 128); font-size: 8.51431px; opacity: 0.801712; z-index: 85; left: 8.58843px; top: 122.222px;">WAXES</a>
+	<a class="tag" href="#" style="color: rgb(57, 133, 54); font-size: 10.3412px; opacity: 1.03749; z-index: 103; left: 9.29545px; top: 175.335px;">3D标签云</a>
+	<a class="tag" href="#" style="color: rgb(111, 28, 5); font-size: 12.6148px; opacity: 1.23555; z-index: 126; left: 61.6326px; top: 203.96px;">WAXES</a>
+	<a class="tag" href="#" style="color: rgb(53, 175, 105); font-size: 13.8521px; opacity: 1.31601; z-index: 138; left: 127.253px; top: 193.201px;">3D标签云</a>
+	<a class="tag" href="#" style="color: rgb(147, 156, 223); font-size: 12.8952px; opacity: 1.25513; z-index: 128; left: 190.43px; top: 146.351px;">WAXES</a>
+	<a class="tag" href="#" style="color: rgb(31, 138, 164); font-size: 10.9249px; opacity: 1.0962; z-index: 109; left: 203.728px; top: 74.3382px;">3D标签云</a>
+	<a class="tag" href="#" style="color: rgb(230, 175, 235); font-size: 9.4291px; opacity: 0.931197; z-index: 94; left: 171.306px; top: 29.6844px;">WAXES</a>
+	<a class="tag" href="#" style="color: rgb(183, 128, 37); font-size: 8.89721px; opacity: 0.85915; z-index: 88; left: 97.7086px; top: 13.2427px;">3D标签云</a>
+	<a class="tag" href="#" style="color: rgb(23, 181, 62); font-size: 9.47057px; opacity: 0.936474; z-index: 94; left: 31.5883px; top: 39.6285px;">WAXES</a>
+	<a class="tag" href="#" style="color: rgb(215, 19, 228); font-size: 11.4131px; opacity: 1.1407; z-index: 114; left: -3.17037px; top: 91.9911px;">3D标签云</a>
+	<a class="tag" href="#" style="color: rgb(106, 237, 172); font-size: 14.8167px; opacity: 1.36942; z-index: 148; left: 26.4407px; top: 135.106px;">WAXES</a>
+	<a class="tag" href="#" style="color: rgb(171, 231, 235); font-size: 17.5357px; opacity: 1.48833; z-index: 175; left: 85.3409px; top: 135.595px;">3D标签云</a>
+	<a class="tag" href="#" style="color: rgb(44, 150, 67); font-size: 15.9238px; opacity: 1.42274; z-index: 159; left: 148.64px; top: 88.4661px;">WAXES</a>
+	<a class="tag" href="#" style="color: rgb(153, 97, 65); font-size: 12.8523px; opacity: 1.25219; z-index: 128; left: 135.184px; top: 28.7521px;">3D标签云</a>
+	<a class="tag" href="#" style="color: rgb(167, 81, 107); font-size: 12.3003px; opacity: 1.21251; z-index: 123; left: 64.8214px; top: 21.9453px;">3D标签云</a>
+	<a class="tag" href="#" style="color: rgb(199, 95, 192); font-size: 15.8256px; opacity: 1.41831; z-index: 158; left: 55.2545px; top: 68.6539px;">WAXES</a>
+</div>
+<script>
+	var tagEle = "querySelectorAll" in document ? document.querySelectorAll(".tag") : getClass("tag"),
+		paper = "querySelectorAll" in document ? document.querySelector(".tagBall") : getClass("tagBall")[0];
+		RADIUS =110,
+		fallLength = 250,
+		tags=[],
+		angleX = Math.PI/250,
+	    angleY = Math.PI/250,
+		CX = paper.offsetWidth/2,
+		CY = paper.offsetHeight/2,
+		EX = paper.offsetLeft + document.body.scrollLeft + document.documentElement.scrollLeft,
+		EY = paper.offsetTop + document.body.scrollTop + document.documentElement.scrollTop;
+	function getClass(className){
+		var ele = document.getElementsByTagName("*");
+		var classEle = [];
+		for(var i=0;i<ele.length;i++){
+			var cn = ele[i].className;
+			if(cn === className){
+				classEle.push(ele[i]);
+			}
+		}
+		return classEle;
+	}
+	function innit(){
+		for(var i=0;i<tagEle.length;i++){
+			var a , b;
+			var k = -1+(2*(i+1)-1)/tagEle.length;
+			var a = Math.acos(k);
+			var b = a*Math.sqrt(tagEle.length*Math.PI);
+			var x = RADIUS * Math.sin(a) * Math.cos(b);
+			var y = RADIUS * Math.sin(a) * Math.sin(b); 
+			var z = RADIUS * Math.cos(a);
+			var t = new tag(tagEle[i] , x , y , z);
+			tagEle[i].style.color = "rgb("+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+")";
+			tags.push(t);
+			t.move();
+		}
+	}
+	Array.prototype.forEach = function(callback){
+		for(var i=0;i<this.length;i++){
+			callback.call(this[i]);
+		}
+	}
+	function animate(){
+		setInterval(function(){
+			rotateX();
+			rotateY();
+			tags.forEach(function(){
+				this.move();
+			})
+		} , 17)
+	}
+	if("addEventListener" in window){
+		paper.addEventListener("mousemove" , function(event){
+			var x = event.clientX - EX - CX;
+			var y = event.clientY - EY - CY;
+			angleY = x*0.0003;
+			angleX = y*0.0003;
+		});
+	}
+	else {
+		paper.attachEvent("onmousemove" , function(event){
+			var x = event.clientX - EX - CX;
+			var y = event.clientY - EY - CY;
+			angleY = x*0.0003;
+			angleX = y*0.0003;
+		});
+	}
+	
+	function rotateX(){
+		var cos = Math.cos(angleX);
+		var sin = Math.sin(angleX);
+		tags.forEach(function(){
+			var y1 = this.y * cos - this.z * sin;
+			var z1 = this.z * cos + this.y * sin;
+			this.y = y1;
+			this.z = z1;
+		})
+		
+	}
+	function rotateY(){
+		var cos = Math.cos(angleY);
+		var sin = Math.sin(angleY);
+		tags.forEach(function(){
+			var x1 = this.x * cos - this.z * sin;
+			var z1 = this.z * cos + this.x * sin;
+			this.x = x1;
+			this.z = z1;
+		})
+	}
+	var tag = function(ele , x , y , z){
+		this.ele = ele;
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+	tag.prototype = {
+		move:function(){
+			var scale = fallLength/(fallLength-this.z);
+			var alpha = (this.z+RADIUS)/(2*RADIUS);
+			this.ele.style.fontSize = 10 * scale + "px";
+			this.ele.style.opacity = alpha+0.5;
+			this.ele.style.filter = "alpha(opacity = "+(alpha+0.5)*100+")";
+			this.ele.style.zIndex = parseInt(scale*100);
+			this.ele.style.left = this.x + CX - this.ele.offsetWidth/2 +"px";
+			this.ele.style.top = this.y + CY - this.ele.offsetHeight/2 +"px";
+		}
+	}
+	innit();
+	animate();
+</script>
