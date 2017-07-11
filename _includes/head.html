@@ -56,4 +56,31 @@ li.title:hover {
 }
 
 </style>
+<script>
+function mobile_close(){
+	alert("please open this blog in pc");
+	window.close();
+}
+function IsPC() {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = ["Android", "iPhone",
+                "SymbianOS", "Windows Phone",
+                "iPad", "iPod"];
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+        }
+    }
+    return flag;
+}
+window.onload = function (){
+	if(IsPC()){
+		//alert('welcome to my blog');
+	}else{
+		mobile_close();
+	}
+}
+</script>
 </head>
