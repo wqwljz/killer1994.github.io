@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "学习3D标签云"
+author: "kkk"
 description: ""
 category: 
 tags: []

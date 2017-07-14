@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "快速学习技巧"
+author: "kkk"
 description: ""
 category: 
 tags: []

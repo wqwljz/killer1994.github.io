@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "酷炫的文字粒子化"
+author: "kkk"
 description: ""
 category: 
 tags: []
