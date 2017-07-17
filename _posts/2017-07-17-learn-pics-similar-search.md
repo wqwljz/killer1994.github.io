@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "相似图片搜索的原理"
+title: "《相似图片搜索的原理》摘录"
 description: ""
 category:
 author: kkk 
