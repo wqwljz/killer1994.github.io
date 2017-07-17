@@ -2,7 +2,7 @@
 layout: post
 title: "初心"
 description: ""
-category: 日常
+category: "normal"
 tags: ["abc","14",123]
 author: kkk
 ---

@@ -3,7 +3,7 @@ layout: post
 title: "这是一种怎样的心理疾病呢"
 author: "kkk"
 description: ""
-category: 
+category: "private"
 tags: []
 ---
 {% include JB/setup %}
