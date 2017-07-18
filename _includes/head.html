@@ -77,10 +77,20 @@ function IsPC() {
     return flag;
 }
 window.onload = function (){
+	aTagAddBlank();
 	if(IsPC()){
 		//alert('welcome to my blog');
 	}else{
 		mobile_close();
+	}
+}
+
+// 弥补markdown语法，为文章里的a元素添加_blank
+function aTagAddBlank(){
+	var content = document.getElementsByClassName("post-content")[0];
+	var alist = content.getElementsByTagName("a");
+	for(var anode of alist){
+		anode.target = "_blank";
 	}
 }
 </script>
