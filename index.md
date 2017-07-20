@@ -10,7 +10,7 @@ tagline: Supporting tagline
 			<td width="70%">
 				<ul class="posts">
 					{% for post in site.posts %}
-						{% if post.category <> "private" %}
+						{% if post.category <> "private" and post.category <> "leetcode" %}
 							<li class="list-group-item title" style="list-style:none;">
 						 		<a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a> 
 								<!-- <span style="float:right">{{ post.date | date_to_string }}</span> -->
