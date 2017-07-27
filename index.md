@@ -4,7 +4,7 @@ title: 无知
 tagline: Supporting tagline
 ---
 {% include JB/setup %}
-<table width="96%" style="margin:0 auto;max-width:700px;">
+<table width="96%" style="margin:0 auto;max-width:750px;">
 	<tbody width="100%">
 		<tr>
 			<td>

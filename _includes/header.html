@@ -1,10 +1,10 @@
-<header class="site-header">
+<header class="site-header" style="">
 
  <!-- <div class="wrapper"> -->
-	<div class="site-head-left" style="width:40%;display:inline-grid;">
+	<div class="site-head-left" style="width:45%;display:inline-grid;max-width:550px;">
     <h2 class="site-title" style="margin:0 auto;" href="{{ site.baseurl }}/">{{ site.title }}</h2>
 	</div>
-	<div class="site-head-right" style="float:right;width:53%;display:inline">
+	<div class="site-head-right" style="float:right;width:53%;display:inline;min-width:365px;">
     <nav class="site-nav">
       <a href="#" class="menu-icon">
         <svg viewBox="0 0 18 15">
@@ -14,7 +14,7 @@
         </svg>
       </a>
 
-      <div class="trigger" style="margin-right:220px">
+      <div class="trigger" style="margin-right:220px;position:static;z-index:999">
 <!-- 加载导航 -->
         {% for my_page in site.pages %}
           {% if my_page.title %}
@@ -29,3 +29,8 @@
  <!-- </div> -->
 
 </header>
+<script>
+var trigger = document.getElementsByClassName("trigger")[0];
+
+
+</script>
