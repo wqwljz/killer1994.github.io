@@ -12,7 +12,7 @@ email: 7*******@qq.com
 description: > 
   Welcome to my blog.
 baseurl: "" 
-url: "http://yourdomain.com"
+#url: "http://yourdomain.com"
 github_username:  killer1994
 
 # Build settings
