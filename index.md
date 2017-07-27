@@ -4,11 +4,11 @@ title: 无知
 tagline: Supporting tagline
 ---
 {% include JB/setup %}
-<table width="83%" style="margin-left:50px">
-	<tbody>
+<table width="96%" style="margin:0 auto;max-width:700px;">
+	<tbody width="100%">
 		<tr>
-			<td width="70%">
-				<ul class="posts">
+			<td>
+				<ul class="posts" style="margin-left:0;">
 					{% for post in site.posts %}
 						{% if post.category <> "private" and post.category <> "leetcode" %}
 							<li class="list-group-item title" style="list-style:none;">
