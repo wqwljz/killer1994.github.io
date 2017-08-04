@@ -20,5 +20,9 @@ markdown: kramdown
 kramdown:
   input:  GFM
 
+#gems: [jekyll-paginate]
+#paginate: 5
+#paginate_path: "_post/page:num"
+
 
 

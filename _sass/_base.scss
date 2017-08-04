@@ -127,15 +127,15 @@ blockquote {
 /**
  * Code formatting
  */
-pre,
-code {
+pre {
     font-size: 15px;
-    border: 1px solid $grey-color-light;
-    border-radius: 3px;
-    background-color: #eef;
+    //border: 1px solid $grey-color-light;
+    //border-radius: 3px;
+    //background-color: #eef;
 }
 
 code {
+	font-size: 15px;
     padding: 1px 5px;
 }
 
@@ -149,7 +149,10 @@ pre {
         padding-left: 0;
     }
 }
-
+.lineno {
+    border-right: 1px solid $grey-color-light;
+	//background-color: #eef;
+}
 
 
 /**
