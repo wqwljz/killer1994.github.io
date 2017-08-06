@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 
-  {% include head.html %}
+	{% include head.html %}
 
-  <body style="overflow-x:hidden">
+	<body style="overflow-x:hidden">
 
-    {% include header.html %}
+		{% include sidebar.html %}
+		<div class="menu-icon"></div>
+		<div class="contents">
+			{% include header.html %}
 
-    
-		{{ content }}
-  </body>
+			<div class="page-content">
+				<div class="wrapper">
+					{{ content }}
+				</div>
+			</div>
+
+		</div>
+
+		{% include 3d-menu.html %}
+
+
+		{% if site.analytics %}
+		{% include analytics.html %}
+		{% endif %}
+	</body>
 
 </html>

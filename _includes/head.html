@@ -9,6 +9,17 @@
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+
+<!-- Bootstrap
+<link rel="stylesheet" href="{{ "/css/bootstrap.css" | prepend: site.baseurl }}">
+-->
+<style>
+          {% capture include_to_scssify %}
+          {% include main.scss %}
+          {% endcapture %}
+</style>
+
+
 <style>
 body{
 	font-family: STFangSong, Helvetica, Arial, Vernada, Tahoma, STXihei, "Microsoft YaHei", "Songti SC", SimSun, Heiti, sans-serif;

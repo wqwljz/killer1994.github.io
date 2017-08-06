@@ -240,3 +240,57 @@
         }
     }
 }
+
+/* this is extend */
+body{
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #222;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGklEQVQIW2NkYGD4D8SMQAwGcAY2AbBKDBUAVuYCBQPd34sAAAAASUVORK5CYII=);
+	background-repeat: repeat;
+    width: 103%;
+}
+
+.contents {
+    background-color: #fff;
+    min-height: 800px;
+    height: 100%;
+    width:100%;
+    border-left: 10px solid #f3f2f2;
+}
+
+.menu-icon {
+    display: block;
+    position: fixed;
+    height: 30px;
+    width: 30px;
+    background-image: url(/favicon.ico);
+    top: 500px;
+}
+
+.post-list {
+    list-style: none;
+}
+
+.meny {
+    padding: 20px;
+    overflow: auto;
+}
+
+.menu-ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.menu-header {
+    color:#fff; 
+    
+}
+.meny-li {
+    font-size: 22px;
+    line-height: 1.8;
+    color: #fff;
+}
+.meny-li:hover {
+    color: #3b97d3;
+}
