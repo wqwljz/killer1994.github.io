@@ -262,10 +262,12 @@ body{
 .menu-icon {
     display: block;
     position: fixed;
-    height: 30px;
-    width: 30px;
-    background-image: url(/favicon.ico);
+    height: 5em;
+    width: 5em;
+    //background: url(/arrow.gif);
+	//background-size:cover;
     top: 80%;
+	left: -1em;
 }
 
 .post-list {
