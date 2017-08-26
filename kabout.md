@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 误区
+title: 和平
 permalink: /about/
 ---
 
@@ -8,8 +8,7 @@ permalink: /about/
 <div class="wrapper">
 <h2>关于</h2>
 
-<p>你好，欢迎来到我的博客，希望我的笔记能帮到你。</p>
-<p>联系方式 QQ: 786466216</p>
+<p>你好，欢迎来到我的博客，如果我的笔记能帮到你，我的荣幸。</p>
 
 </div>
 

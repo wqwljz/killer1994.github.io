@@ -1,12 +1,13 @@
 ---
 layout: page
-title: 灵魂
+title: 战争
 permalink: /think/
 ---
 
 
 <div class="wrapper">
 <h2>随心</h2>
+<blockquote>[2017/08/27] 一首《Life and Death》送给自己</blockquote>
 <blockquote>[2017/08/21] 试着平复急躁的内心。</blockquote>
 <blockquote>[2017/08/12] 恭喜你，获得 "挖坑不填达人" 称号</blockquote>
 <blockquote>[2017/07/23] 人如果不作出牺牲，就什么也得不到，为了得到某些东西就必须付出同等到代价。这就是炼金术中的等价交换原则。&nbsp;&nbsp;&nbsp;&nbsp;——Fullmetal Alchemist</blockquote>
