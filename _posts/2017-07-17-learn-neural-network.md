@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "《神经网络入门》摘录"
+title: "摘录《神经网络入门》"
 description: ""
 category: 
 tags: []

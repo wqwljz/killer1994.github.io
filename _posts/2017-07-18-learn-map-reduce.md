@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "《MapReduce：面向大型集群的简化数据处理》摘录"
+title: "摘录《MapReduce：面向大型集群的简化数据处理》"
 description: ""
 category: 
 tags: []
