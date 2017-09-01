@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "腾讯云-配置java环境(jdk1.7+tomcat7.0)"
+title: "在服务器上配置javaweb项目"
 description: ""
 category: 
 tags: []
@@ -75,15 +75,38 @@ firewall-cmd --add-service=tomcat
 firewall-cmd --permanent --add-service=tomcat
 ```
 
- 所有发往80的tcp包转发到8080
+把所有发往80的tcp包转发到8080
 ```
 firewall-cmd --add-forward-port=port=80:proto=tcp:toport=8080
 firewall-cmd --permanent --add-forward-port=port=80:proto=tcp:toport=8080
 ```
 测试:访问 http://主机IP:8080 以及 http://主机IP
 
-### 5.部署javaweb项目(待补)
+### 5.部署javaweb项目
 
+这里，我通过WinSCP，将windows上的文件上传linux服务器上
+
+首先安装 WinSCP，如果没有putty.exe，则加入一开始的putty。
+
+WinSCP目录如下
+
+![winscp目录](/Resources/pics/WinSCP.png)
+
+PuTTY目录如下
+
+![putty目录](/Resources/pics/PuTTY.png)
+
+WinSCP通过PuTTY导入站点
+
+![导入站点1](/Resources/pics/winscp1.png)
+
+![导入站点2](/Resources/pics/winscp3.png)
+
+点击登录，输入用户名（root），就连接上服务器了。
+
+![部署war包](/Resources/pics/upload_war.png)
+
+测试:访问 http://主机IP/项目名/
 
 ### 参考资料
 
