@@ -8,7 +8,7 @@ function initPage() {
         prebtn.disabled = "disabled";
     else
         prebtn.disabled = "";
-    if(pageNum * pageSize > list.length)
+    if(pageNum * pageSize >= list.length)
         nxtbtn.disabled = "disabled";
     else
         nxtbtn.disabled = "";
