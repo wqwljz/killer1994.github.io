@@ -9,8 +9,18 @@ tagline: Supporting tagline
 		<tr>
 			<td>
 				<ul class="posts" style="margin-left:0;">
+					<!-- 置顶 -->
 					{% for post in site.posts %}
-						{% if post.category <> "private" and post.category <> "leetcode" %}
+						{% if post.category == "top" %}
+							<li class="list-group-item title" style="list-style:none;">
+						 		<a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a> 
+								<!-- <span style="float:right">{{ post.date | date_to_string }}</span> -->
+							</li>
+						{% endif %}
+					{% endfor %}
+					<!-- 过滤 -->
+					{% for post in site.posts %}
+						{% if post.category <> "private" and post.category <> "leetcode" and post.category <> "top" %}
 							<li class="list-group-item title" style="list-style:none;">
 						 		<a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a> 
 								<!-- <span style="float:right">{{ post.date | date_to_string }}</span> -->
