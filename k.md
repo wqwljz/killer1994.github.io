@@ -7,6 +7,7 @@ permalink: /think/
 
 <div class="wrapper">
 <h2>随心</h2>
+<blockquote>[2017/09/10] 江湖路远，后会无期</blockquote>
 <blockquote>[2017/08/27] 一首《Life and Death》送给自己</blockquote>
 <blockquote>[2017/08/21] 试着平复急躁的内心。</blockquote>
 <blockquote>[2017/08/12] 恭喜你，获得 "挖坑不填达人" 称号</blockquote>
