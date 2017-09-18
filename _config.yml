@@ -25,4 +25,6 @@ kramdown:
 #paginate_path: "_post/page:num"
 
 
+port: 5001
+
 
