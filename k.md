@@ -7,6 +7,7 @@ permalink: /think/
 
 <div class="wrapper">
 <h2>随心</h2>
+<blockquote>[2017/09/29] 上课觉得困了可以睡觉但是不要发出声音，因为发出声音回影响其他同学睡觉。为李老师打call </blockquote>
 <blockquote>[2017/09/26] 新的开始 </blockquote>
 <blockquote>[2017/09/10] 江湖路远，后会无期</blockquote>
 <blockquote>[2017/08/27] 一首《Life and Death》送给自己</blockquote>
